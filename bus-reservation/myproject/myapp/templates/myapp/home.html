@@ -1,0 +1,55 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        /* Ensure the body takes the full height of the viewport */
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Center the content vertically and horizontally */
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+        }
+
+        .bus-image {
+            width: 100%;
+            max-width: 600px;  /* Optional: set a max width for the image */
+            height: auto;
+            margin-bottom: 20px; /* Optional: add space between image and text */
+        }
+
+        /* Optional styles for the heading and description */
+        .welcome-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: #555;
+        }
+    </style>
+
+    <div class="center-content">
+        <!-- Image with AVIF format and fallback to JPG -->
+        <picture>
+            <source srcset="{% static 'mysite/images/bus1.avif' %}" type="image/avif">
+            <img src="{% static 'mysite/images/bus1.jpg' %}" alt="Bus Image" class="bus-image">
+        </picture>
+
+        <h1 class="welcome-title">Welcome to Bus Reservation System</h1>
+        <p class="tagline">Book your travel with ease and comfort</p>
+    </div>
+
+{% endblock %}
